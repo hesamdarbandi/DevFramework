@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <Folder Include="wwwroot\" />
+        <Folder Include="Infra\" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.App">
+          <PrivateAssets Condition="'%(PackageReference.Version)' == ''">all</PrivateAssets>
+          <Publish Condition="'%(PackageReference.Version)' == ''">true</Publish>
+        </PackageReference>
+        <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />        
+        <PackageReference Include="Polly" Version="5.9.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
+        <PackageReference Include="AutoMapper" Version="6.2.2" />
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\DevFramework.Data\DevFramework.Data.csproj" />
+        <ProjectReference Include="..\DevFramework.Domain\DevFramework.Domain.csproj" />
+        <ProjectReference Include="..\DevFramework.Services\DevFramework.Service.csproj">
+          <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+        </ProjectReference>
+    </ItemGroup>
+</Project>
